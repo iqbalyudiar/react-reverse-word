@@ -31,16 +31,37 @@ export default function Reverse() {
     setResult({ ...result, text: reverse });
   };
 
+  const reverseNumber = () => {
+    let { number } = input;
+    let reverse = number
+      .split("")
+      .reverse()
+      .join("");
+    setResult({ ...result, number: reverse });
+  };
+
   const { text } = result;
-  console.log(input.text);
-  console.log(result.text);
+  const { number } = result;
+  console.log(input.text, "ini input text");
+  console.log(result.text, "ini result text");
+  console.log(input.number, "ini input number");
+  console.log(result.number, "ini result number");
 
   return (
     <div>
-      <input type="text" name="text" onChange={handleInput} />
-      <p>Click Button to Reverse the Word</p>
-      <ReverseButton onClick={reverseWord} />
-      <ReverseResult result={text} />
+      <div id="input-1">
+        <input type="text" name="text" onChange={handleInput} />
+        <p>Click Button to Reverse the Word</p>
+        <ReverseButton id="button-1" clickText={reverseWord} />
+        <ReverseResult id="result-1" resultText={text} />
+      </div>
+
+      <div id="input-2">
+        <input type="text" name="number" onChange={handleInput} />
+        <p>Click Button to Reverse the Number</p>
+        <ReverseButton id="button-2" clickNumber={reverseNumber} />
+        <ReverseResult id="result-2" resultNumber={number} />
+      </div>
     </div>
   );
 }
