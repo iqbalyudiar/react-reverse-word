@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ReverseInput from "./ReverseInput";
 import ReverseButton from "./ReverseButton";
 import ReverseResult from "./ReverseResult";
 
@@ -39,7 +40,6 @@ export default function Reverse() {
       .join("");
     setResult({ ...result, number: reverse });
   };
-
   const { text } = result;
   const { number } = result;
   console.log(input.text, "ini input text");
@@ -50,14 +50,14 @@ export default function Reverse() {
   return (
     <div>
       <div id="input-1">
-        <input type="text" name="text" onChange={handleInput} />
+        <ReverseInput name="text" onChange={handleInput} />
         <p>Click Button to Reverse the Word</p>
         <ReverseButton id="button-1" clickText={reverseWord} />
         <ReverseResult id="result-1" resultText={text} />
       </div>
 
       <div id="input-2">
-        <input type="text" name="number" onChange={handleInput} />
+        <ReverseInput name="number" onChange={handleInput} />
         <p>Click Button to Reverse the Number</p>
         <ReverseButton id="button-2" clickNumber={reverseNumber} />
         <ReverseResult id="result-2" resultNumber={number} />
